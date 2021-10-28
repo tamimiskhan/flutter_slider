@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Slider",
       home: HomePage(),
     );
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -29,24 +30,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "Tamim",
-            style: TextStyle(fontSize: _value),
-          ),
-          SizedBox(height: 20,),
-          Slider(
-              min: 10,
-              max: 50,
-              value: _value,
-              onChanged: (value) {
-                setState(() {
-                  _value = value;
-                });
-              }),
-        ],
+      body: Center(
+        child: RichText(
+          text: TextSpan(
+              text: "Tamim is khan?",
+              style: TextStyle(fontSize: 20,color: Colors.black,fontStyle: FontStyle.italic),
+              children: [
+                TextSpan(
+                    text: "Sign up",
+                    style: TextStyle(fontSize: 25, color: Colors.blue))
+              ]),
+        ),
       ),
     );
   }
